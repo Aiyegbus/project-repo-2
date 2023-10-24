@@ -1,3 +1,12 @@
+terraform {
+  cloud {
+    organization = "Ayodev"
+
+    workspaces {
+      name = "demo"
+    }
+  }
+}
 provider "aws" {
   region = "us-west-1" # Set your desired AWS region
 }
