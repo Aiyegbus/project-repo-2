@@ -32,7 +32,7 @@ resource "aws_subnet" "my_subnet_1" {
 
 resource "aws_subnet" "my_subnet_2" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block              = "172.16.0.0/24"
+  cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-west-1c" # Set your preferred availability zone consistently
   map_public_ip_on_launch = true
   tags = {
@@ -98,7 +98,7 @@ resource "aws_instance" "my_instance" {
   instance_type = "t2.micro"              # Replace with your desired instance type
   subnet_id     = aws_subnet.my_subnet_1.id
 
-  security_groups = [aws_security_group.my_sg.name]
+  vpc_security_group_ids = [aws_security_group.my_sg.id]
 
   # Define your EC2 instance configuration here
 }
@@ -110,7 +110,7 @@ resource "aws_lb" "my_lb" {
 
   enable_deletion_protection = false # Change this if needed
 
-  subnets = [aws_subnet.my_subnet_1.id]
+  subnets = [aws_subnet.my_subnet_1.id, aws_subnet.my_subnet_2.id]
 
   enable_http2 = true
 
