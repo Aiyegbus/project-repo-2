@@ -20,13 +20,23 @@ resource "aws_vpc" "my_vpc" {
   }
 }
 
-resource "aws_subnet" "my_subnet" {
+resource "aws_subnet" "my_subnet_1" {
   vpc_id                  = aws_vpc.my_vpc.id
   cidr_block              = "10.0.0.0/24"
   availability_zone       = "us-west-1a" # Set your preferred availability zone consistently
   map_public_ip_on_launch = true
   tags = {
-    Name = "my-subnet"
+    Name = "my-subnet-1"
+  }
+}
+
+resource "aws_subnet" "my_subnet_2" {
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.0.0/24"
+  availability_zone       = "us-west-1c" # Set your preferred availability zone consistently
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "my-subnet-2"
   }
 }
 
@@ -84,7 +94,7 @@ resource "aws_security_group" "my_sg" {
 }
 
 resource "aws_instance" "my_instance" {
-  ami             = "ami-0c55b159cbfafe1f0" # Replace with your desired AMI
+  ami             = "ami-0cbd40f694b804622" # Replace with your desired AMI
   instance_type   = "t2.micro"              # Replace with your desired instance type
   subnet_id       = aws_subnet.my_subnet.id
   security_groups = [aws_security_group.my_sg.name]
