@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 80:80 simple-web-app:latest
+          docker run -d -p 80:80 ayodev581/simple-web-app:latest
           # Replace with your Docker image details (name and tag)
         env:
           MY_ENV_VAR: some_value
