@@ -32,7 +32,7 @@ resource "aws_subnet" "my_subnet_1" {
 
 resource "aws_subnet" "my_subnet_2" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block              = "10.0.0.0/24"
+  cidr_block              = "172.16.0.0/24"
   availability_zone       = "us-west-1c" # Set your preferred availability zone consistently
   map_public_ip_on_launch = true
   tags = {
