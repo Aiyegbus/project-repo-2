@@ -94,9 +94,10 @@ resource "aws_security_group" "my_sg" {
 }
 
 resource "aws_instance" "my_instance" {
-  ami             = "ami-0cbd40f694b804622" # Replace with your desired AMI
-  instance_type   = "t2.micro"              # Replace with your desired instance type
-  subnet_id       = aws_subnet.my_subnet.id
+  ami           = "ami-0cbd40f694b804622" # Replace with your desired AMI
+  instance_type = "t2.micro"              # Replace with your desired instance type
+  subnet_id     = aws_subnet.my_subnet_1.id
+
   security_groups = [aws_security_group.my_sg.name]
 
   # Define your EC2 instance configuration here
