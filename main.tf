@@ -110,7 +110,7 @@ resource "aws_lb" "my_lb" {
 
   enable_deletion_protection = false # Change this if needed
 
-  subnets = [aws_subnet.my_subnet.id]
+  subnets = [aws_subnet.my_subnet_1.id]
 
   enable_http2 = true
 
