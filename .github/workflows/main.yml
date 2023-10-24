@@ -18,7 +18,7 @@ jobs:
         # Replace with your container registry credentials stored as secrets
 
       - name: Pull Docker Image
-        run: docker pull simple-web-app:latest
+        run: docker pull ayodev581/simple-web-app:latest
         # Replace with your Docker image details (name and tag)
 
       - name: Run Docker Container
